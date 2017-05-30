@@ -18,6 +18,11 @@ val versions = new {
   val snakeyaml = "1.17"
   val scalaTest = "2.2.5"
   val spec2 = "2.3.11"
+
+  //---Bachelor ----//
+  val deeplearning4j = "0.8.0"
+  val datavec = "0.8.0"
+
 }
 
 libraryDependencies ++= {
@@ -51,9 +56,25 @@ libraryDependencies ++= {
     "org.specs2"          %%  "specs2-core"      % versions.spec2     % "test",
     "com.netaporter"      %%  "pre-canned"       % "0.0.7"            % "test",
     "com.typesafe.akka"   %%  "akka-testkit"     % versions.akka      % "test",
-    "io.spray"            %%  "spray-testkit"    % versions.spray     % "test"
+    "io.spray"            %%  "spray-testkit"    % versions.spray     % "test",
+
+    //----------Bachelor libraries--------------//
+    "org.deeplearning4j" % "deeplearning4j-core" % versions.deeplearning4j,
+    "org.deeplearning4j" % "deeplearning4j-nn" % versions.deeplearning4j,
+    "org.deeplearning4j" % "deeplearning4j-modelimport" % versions.deeplearning4j,
+    "org.deeplearning4j" % "deeplearning4j-scaleout" % versions.deeplearning4j,
+    "org.datavec" % "datavec-api" % versions.datavec,
+    "org.datavec" % "datavec-data-image" % versions.datavec,
+    "org.slf4j" % "slf4j-api" % versions.slf4j,
+    "org.slf4j" % "slf4j-simple" % versions.slf4j
   )
 }
+//-----Bachelor libraries----//
+classpathTypes += "maven-plugin"
+libraryDependencies += "org.nd4j" % "nd4j-native" % "0.4-rc3.10" classifier "" classifier "linux-x86_64"
+libraryDependencies += "org.nd4j" % "nd4j-jblas" % "0.0.3.5.1"
+
+
 
 resolvers += "hbpmip artifactory" at "http://hbps1.chuv.ch/artifactory/libs-release/"
 
